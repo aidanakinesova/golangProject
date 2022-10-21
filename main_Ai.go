@@ -104,6 +104,6 @@ func handleFunc() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func main() {
+func mainAi() {
 	handleFunc()
 }
