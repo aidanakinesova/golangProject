@@ -1,3 +1,4 @@
+customer
 {
     "id":8,
     "name":"BBBBBBBBBB",
@@ -8,3 +9,11 @@
 }
 
 UPDATE `Customer` SET `name`='AAAA',`surname`='BBBB',`age`=15,`sex`='Male',`card_number`='2222' WHERE `id`=5;
+
+article
+{
+    "name":"AAAAAAAAA",
+    "anons":"BBBBBBBBBBB",
+    "full_text":"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+    "image":"http"
+}

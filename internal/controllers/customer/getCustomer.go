@@ -25,9 +25,10 @@ func GetCustomer(db *sql.DB) gin.HandlerFunc{
 			}
 
 			c.JSON(http.StatusInternalServerError,"error")
-			fmt.Println(id)
+			
 			return
 		}
+		fmt.Println(id)
 		c.JSON(http.StatusOK,customer)
 
 	}
