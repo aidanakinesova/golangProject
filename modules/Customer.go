@@ -14,4 +14,5 @@ type PutCustomer struct{
 	Age int `json:"age" binding:"required,gt=0"`
 	Sex string `json:"sex" binding:"required,oneof=Male Female"`
 	CardNumber string `json:"card_number" binding:"required"`
-}
+} 
+
