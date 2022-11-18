@@ -22,7 +22,7 @@ func PutTicket(db *sql.DB) gin.HandlerFunc{
 			return
 		}
 
-		if _,e := db.ExecContext(ctx,fmt.Sprintf("UPDATE `tickets` SET `fromWhere`='%s',`toWhere`='%s',`departureDate`='%s',`departureTime`='%s', `arrivalTime`='%s', `duration`='%s', `price`='%d'  WHERE `id`=%d;", ticket.FromWhere, ticket.ToWhere, ticket.DepartureDate, ticket.DepartureTime, ticket.Duration, ticket.Price, id)); e!=nil {
+		if _,e := db.ExecContext(ctx,fmt.Sprintf("UPDATE `tickets` SET `fromWhere`='%s',`toWhere`='%s',`departureDate`='%s',`departureTime`='%s', `arrivalTime`='%s', `duration`='%s', `price`=%d  WHERE `id`=%d;", ticket.FromWhere, ticket.ToWhere, ticket.DepartureDate, ticket.DepartureTime,ticket.ArrivalTime, ticket.Duration, ticket.Price, id)); e!=nil {
 			c.JSON(http.StatusInternalServerError, "internal server error")
 			return
 		}

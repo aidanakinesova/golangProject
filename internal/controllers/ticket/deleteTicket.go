@@ -15,7 +15,7 @@ func DeleteTicket(db *sql.DB) gin.HandlerFunc{
 
 		var result sql.Result
 		var e error
-		if result, e = db.ExecContext(ctx, fmt.Sprintf("DELETE FROM `Tickets` WHERE `id`=%d",id)); e!=nil{
+		if result, e = db.ExecContext(ctx, fmt.Sprintf("DELETE FROM `tickets` WHERE `id`=%d",id)); e!=nil{
 			c.JSON(http.StatusInternalServerError,"internal error")
 			return
 		}

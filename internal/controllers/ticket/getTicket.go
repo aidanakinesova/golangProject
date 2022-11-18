@@ -15,7 +15,7 @@ func GetTicket(db *sql.DB) gin.HandlerFunc{
 	return func(c *gin.Context){
 		var id, _ = strconv.Atoi(c.Param("id"))
 		var ctx = c.Request.Context()
-		var row = db.QueryRowContext(ctx, fmt.Sprintf("SELECT * FROM `Tickets` WHERE `Id`=%d",id))
+		var row = db.QueryRowContext(ctx, fmt.Sprintf("SELECT * FROM `tickets` WHERE `Id`=%d",id))
 		var ticket modules.Ticket  
 
 		if e := row.Scan(&ticket.Id, &ticket.FromWhere, &ticket.ToWhere, &ticket.DepartureDate, &ticket.DepartureTime, &ticket.ArrivalTime, &ticket.Duration, &ticket.Price); e != nil{

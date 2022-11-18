@@ -14,7 +14,7 @@ func GetTickets(db *sql.DB) gin.HandlerFunc{
 		var rows *sql.Rows
 		var e error
 
-		if rows, e = db.Query("SELECT * FROM `Tickets`"); e != nil {
+		if rows, e = db.Query("SELECT * FROM `tickets`"); e != nil {
 			c.JSON(http.StatusInternalServerError,e)
 			return
 		}
