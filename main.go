@@ -3,6 +3,7 @@ package main
 import (
 	"go/basic/g/internal/controllers/customer"
 	"go/basic/g/internal/controllers/article"
+	"go/basic/g/internal/controllers/user"
 	"log"
 	// "fmt"
 
@@ -36,6 +37,12 @@ func main(){
 	router.DELETE("/articles/:id",article.DeleteArticle(db))
 	router.POST("/articles",article.PostArticle(db))
 	router.PUT("/articles/:id",article.PutArticle(db))
+	// user endpoints
+	router.GET("/users",user.GetUsers(db))
+	router.GET("/users/:id",user.GetUser(db))
+	router.DELETE("/users/:id",user.DeleteUser(db))
+	router.POST("/users",user.PostUser(db))
+	router.PUT("/users/:id",user.PutUser(db))
 
 	log.Fatalln(router.Run(address))
 

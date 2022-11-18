@@ -17,3 +17,8 @@ article
     "full_text":"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
     "image":"http"
 }
+user
+{
+    "name": "Example",
+    "password": "123456789"
+}
