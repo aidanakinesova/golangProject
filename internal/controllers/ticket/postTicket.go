@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go/basic/g/modules"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -28,8 +29,12 @@ func PostTicket(db *sql.DB) gin.HandlerFunc{
 			}
 			c.JSON(http.StatusInternalServerError,"ERRORRR")
 		}
- 
-		if _, e := db.ExecContext(ctx, fmt.Sprintf("INSERT INTO `tickets` VALUES(%d,'%s','%s',%s,'%s','%s','%s',%d);",ticket.Id+1, ticket.FromWhere, ticket.ToWhere, ticket.DepartureDate, ticket.DepartureTime, ticket.ArrivalTime, ticket.Duration, ticket.Price)); e != nil {
+		resId:=strconv.Itoa(ticket.Id+1)
+		resPrice:=strconv.Itoa(ticket.Price)
+		resQuery:="INSERT INTO `tickets` VALUES("+resId + ",'"+ ticket.FromWhere +"','"+ticket.ToWhere+"','"+ticket.DepartureDate+"','"+ticket.DepartureTime+"','"+ticket.ArrivalTime+"','"+ticket.Duration+"',"+resPrice+");"
+		// if _, e := db.ExecContext(ctx, fmt.Sprintf("INSERT INTO `tickets` VALUES(%d,'%s','%s',%s,'%s','%s','%s',%d);",ticket.Id+1, ticket.FromWhere, ticket.ToWhere, ticket.DepartureDate, ticket.DepartureTime, ticket.ArrivalTime, ticket.Duration, ticket.Price)); e != nil {
+		if _, e := db.ExecContext(ctx, resQuery); e != nil {
+
 			c.JSON(http.StatusInternalServerError,"internal error")
 			return
 		}
