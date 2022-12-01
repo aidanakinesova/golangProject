@@ -1,4 +1,4 @@
-package ticket
+package myTickets
 
 import (
 	"database/sql"
